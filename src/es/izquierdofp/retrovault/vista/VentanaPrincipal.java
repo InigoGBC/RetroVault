@@ -38,6 +38,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnAnyadir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaJuegos = new javax.swing.JTable();
+        panelEstadisticas = new javax.swing.JPanel();
+        lblTotal = new javax.swing.JLabel();
+        lblCompletados = new javax.swing.JLabel();
+        lblMedia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RetroVault — Biblioteca de Videojuegos Retro ");
@@ -88,6 +92,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
+        panelEstadisticas.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        lblTotal.setText("Total: 0");
+        panelEstadisticas.add(lblTotal);
+
+        lblCompletados.setText("| Completados: 0");
+        panelEstadisticas.add(lblCompletados);
+
+        lblMedia.setText("| Puntuación media: –");
+        panelEstadisticas.add(lblMedia);
+
+        getContentPane().add(panelEstadisticas, java.awt.BorderLayout.PAGE_END);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -129,6 +146,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCompletados;
+    private javax.swing.JLabel lblMedia;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JPanel panelEstadisticas;
     private javax.swing.JPanel panelFiltros;
     private javax.swing.JTable tablaJuegos;
     // End of variables declaration//GEN-END:variables
