@@ -50,6 +50,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         mniEditar = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mniEliminar = new javax.swing.JMenuItem();
+        mnVista = new javax.swing.JMenu();
+        mniActualizar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RetroVault — Biblioteca de Videojuegos Retro ");
@@ -137,6 +139,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnJuegos);
 
+        mnVista.setText("Vista");
+
+        mniActualizar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        mniActualizar.setText("Actualizar");
+        mnVista.add(mniActualizar);
+
+        jMenuBar1.add(mnVista);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -187,6 +197,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblMedia;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JMenu mnJuegos;
+    private javax.swing.JMenu mnVista;
+    private javax.swing.JMenuItem mniActualizar;
     private javax.swing.JMenuItem mniAnyadir;
     private javax.swing.JMenuItem mniEditar;
     private javax.swing.JMenuItem mniEliminar;
