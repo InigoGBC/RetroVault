@@ -42,6 +42,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblTotal = new javax.swing.JLabel();
         lblCompletados = new javax.swing.JLabel();
         lblMedia = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        mniSalir = new javax.swing.JMenuItem();
+        mnJuegos = new javax.swing.JMenu();
+        mniAnyadir = new javax.swing.JMenuItem();
+        mniEditar = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mniEliminar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RetroVault — Biblioteca de Videojuegos Retro ");
@@ -105,6 +113,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(panelEstadisticas, java.awt.BorderLayout.PAGE_END);
 
+        jMenu1.setText("File");
+
+        mniSalir.setText("Salir ");
+        jMenu1.add(mniSalir);
+
+        jMenuBar1.add(jMenu1);
+
+        mnJuegos.setText("Juegos");
+
+        mniAnyadir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mniAnyadir.setText("Añadir juego…");
+        mnJuegos.add(mniAnyadir);
+
+        mniEditar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mniEditar.setText("Editar juego…");
+        mnJuegos.add(mniEditar);
+        mnJuegos.add(jSeparator1);
+
+        mniEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, 0));
+        mniEliminar.setText("Eliminar juego");
+        mnJuegos.add(mniEliminar);
+
+        jMenuBar1.add(mnJuegos);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,10 +179,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblCompletados;
     private javax.swing.JLabel lblMedia;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JMenu mnJuegos;
+    private javax.swing.JMenuItem mniAnyadir;
+    private javax.swing.JMenuItem mniEditar;
+    private javax.swing.JMenuItem mniEliminar;
+    private javax.swing.JMenuItem mniSalir;
     private javax.swing.JPanel panelEstadisticas;
     private javax.swing.JPanel panelFiltros;
     private javax.swing.JTable tablaJuegos;
