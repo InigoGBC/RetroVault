@@ -5,6 +5,7 @@
 package es.izquierdofp.retrovault.vista;
 
 import es.izquierdofp.retrovault.datos.JuegoDAO;
+import es.izquierdofp.retrovault.modelo.Juego;
 
 /**
  *
@@ -119,7 +120,7 @@ private void editarSeleccionado() {
             cargarDatos();
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -241,6 +242,7 @@ private void editarSeleccionado() {
         jMenu1.setText("File");
 
         mniSalir.setText("Salir ");
+        mniSalir.addActionListener(this::mniSalirActionPerformed);
         jMenu1.add(mniSalir);
 
         jMenuBar1.add(jMenu1);
@@ -285,47 +287,72 @@ private void editarSeleccionado() {
 
     private void popEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popEliminarActionPerformed
         // TODO add your handling code here:
+          eliminarSeleccionado();
     }//GEN-LAST:event_popEliminarActionPerformed
 
     private void popEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popEditarActionPerformed
         // TODO add your handling code here:
+         editarSeleccionado();
     }//GEN-LAST:event_popEditarActionPerformed
 
     private void popAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popAnyadirActionPerformed
         // TODO add your handling code here:
+     btnAnyadirActionPerformed(evt);
+
     }//GEN-LAST:event_popAnyadirActionPerformed
 
     private void mniAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAnyadirActionPerformed
         // TODO add your handling code here:
+        btnAnyadirActionPerformed(evt);
     }//GEN-LAST:event_mniAnyadirActionPerformed
 
     private void mniEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEditarActionPerformed
         // TODO add your handling code here:
+        editarSeleccionado();
     }//GEN-LAST:event_mniEditarActionPerformed
 
     private void mniEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEliminarActionPerformed
         // TODO add your handling code here:
+          eliminarSeleccionado();
     }//GEN-LAST:event_mniEliminarActionPerformed
 
     private void mniActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniActualizarActionPerformed
         // TODO add your handling code here:
+          cargarDatos();
     }//GEN-LAST:event_mniActualizarActionPerformed
 
     private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
         // TODO add your handling code here:
+        String cons = (String) cmbConsola.getSelectedItem(); 
+ String est = (String) cmbEstado.getSelectedItem(); 
+ java.util.List<Juego> lista; 
+ if (!"Todas".equals(cons)) lista = dao.obtenerPorConsola(cons); 
+ else if (!"Todos".equals(est)) lista = dao.obtenerPorEstado(est); 
+ else lista = dao.obtenerTodos(); 
+ modeloTabla.setJuegos(lista);
     }//GEN-LAST:event_btnFiltrarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
+        cmbConsola.setSelectedIndex(0); cmbEstado.setSelectedIndex(0); cargarDatos();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnyadirActionPerformed
         // TODO add your handling code here:
+       DialogoJuego dlg = new DialogoJuego(this, null); // null = nuevo 
+ dlg.setVisible(true); 
+ if (dlg.isGuardado()) { dao.insertar(dlg.getJuego()); cargarDatos(); }
     }//GEN-LAST:event_btnAnyadirActionPerformed
+
+    private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_mniSalirActionPerformed
 
     /**
      * @param args the command line arguments
